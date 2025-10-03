@@ -1,15 +1,29 @@
-import { Link } from 'react-router-dom';
+import { useParams, Navigate, Link } from 'react-router-dom';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { SearchHero } from '@/components/search/SearchHero';
 import * as icons from 'lucide-react';
 import { Card } from '@/components/ui/card';
-import categoriesData from '@/data/categories.json';
 import citiesData from '@/data/cities.json';
+import categoriesData from '@/data/categories.json';
 import { useSearchStore } from '@/store/useSearchStore';
+import { useEffect } from 'react';
 
-const Index = () => {
+const CityHome = () => {
+  const { city } = useParams<{ city: string }>();
   const { setCity, setCategory } = useSearchStore();
+
+  const cityData = citiesData.find((c) => c.slug === city);
+
+  useEffect(() => {
+    if (cityData) {
+      setCity(cityData.slug);
+    }
+  }, [cityData, setCity]);
+
+  if (!cityData) {
+    return <Navigate to="/" replace />;
+  }
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -19,25 +33,25 @@ const Index = () => {
         <section className="bg-gradient-hero py-20 px-4">
           <div className="container mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Caută în propoziții.<br />Găsești firme reale.
+              Caută servicii în {cityData.name}
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Descrie ce ai nevoie în limbaj natural și lasă AI-ul să găsească firmele potrivite pentru tine.
+              Descrie ce ai nevoie și găsește rapid firme verificate în {cityData.name}
             </p>
-            <SearchHero />
+            <SearchHero cityContext={cityData.slug} />
           </div>
         </section>
 
         <section className="py-16 px-4">
           <div className="container mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-center">Categorii populare</h2>
+            <h2 className="text-2xl font-bold mb-8">Categorii populare în {cityData.name}</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {categoriesData.map((cat) => {
                 const IconComponent = (icons as any)[cat.icon] || icons.Wrench;
                 return (
                   <Link
                     key={cat.slug}
-                    to={`/results?category=${cat.slug}`}
+                    to={`/${cityData.slug}/${cat.slug}`}
                     onClick={() => setCategory(cat.slug)}
                   >
                     <Card className="p-6 hover:shadow-soft transition-all hover:scale-105 cursor-pointer">
@@ -54,24 +68,6 @@ const Index = () => {
             </div>
           </div>
         </section>
-
-        <section className="py-16 px-4 bg-muted/30">
-          <div className="container mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-center">Orașe acoperite</h2>
-            <div className="flex flex-wrap justify-center gap-3">
-              {citiesData.map((city) => (
-                <Link
-                  key={city.slug}
-                  to={`/${city.slug}`}
-                  onClick={() => setCity(city.slug)}
-                  className="px-4 py-2 rounded-full bg-card hover:bg-card/80 border hover:border-primary transition-all text-sm font-medium"
-                >
-                  {city.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
       </main>
 
       <Footer />
@@ -79,4 +75,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default CityHome;

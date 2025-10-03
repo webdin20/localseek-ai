@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "instalator",
+    "name": "Instalator",
+    "icon": "Wrench",
+    "description": "Instalații sanitare, termice, gaze"
+  },
+  {
+    "slug": "electrician",
+    "name": "Electrician",
+    "icon": "Zap",
+    "description": "Instalații electrice, tablouri, branșamente"
+  },
+  {
+    "slug": "curatenie",
+    "name": "Curățenie",
+    "icon": "Sparkles",
+    "description": "Curățenie profesională, dezinfecție"
+  },
+  {
+    "slug": "avocat",
+    "name": "Avocat",
+    "icon": "Scale",
+    "description": "Consultanță juridică, reprezentare"
+  },
+  {
+    "slug": "web-developer",
+    "name": "Web Developer",
+    "icon": "Code",
+    "description": "Dezvoltare web, aplicații, design"
+  },
+  {
+    "slug": "mecanic-auto",
+    "name": "Mecanic Auto",
+    "icon": "Car",
+    "description": "Reparații auto, service, diagnosticare"
+  },
+  {
+    "slug": "stomatolog",
+    "name": "Stomatolog",
+    "icon": "Activity",
+    "description": "Consultații, tratamente dentare"
+  },
+  {
+    "slug": "frizerie",
+    "name": "Frizerie",
+    "icon": "Scissors",
+    "description": "Coafură, tunsori, styling"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "bucuresti",
+    "name": "București",
+    "areas": ["Sector 1", "Sector 2", "Sector 3", "Sector 4", "Sector 5", "Sector 6"]
+  },
+  {
+    "slug": "cluj-napoca",
+    "name": "Cluj-Napoca",
+    "areas": ["Centru", "Mănăștur", "Gheorgheni", "Zorilor", "Grigorescu"]
+  },
+  {
+    "slug": "timisoara",
+    "name": "Timișoara",
+    "areas": ["Centru", "Circumvalațiunii", "Mehala", "Fabric"]
+  },
+  {
+    "slug": "iasi",
+    "name": "Iași",
+    "areas": ["Centru", "Tătărași", "Nicolina", "Copou", "Podu Roș"]
+  },
+  {
+    "slug": "constanta",
+    "name": "Constanța",
+    "areas": ["Centru", "Tomis Nord", "Tomis Sud", "Mamaia"]
+  },
+  {
+    "slug": "brasov",
+    "name": "Brașov",
+    "areas": ["Centru", "Tractorul", "Noua", "Astra"]
+  },
+  {
+    "slug": "craiova",
+    "name": "Craiova",
+    "areas": ["Centru", "Brazda lui Novac", "1 Mai", "Valea Roșie"]
+  },
+  {
+    "slug": "slatina",
+    "name": "Slatina",
+    "areas": ["Centru", "Crișan", "Tunari"]
+  }
+]
